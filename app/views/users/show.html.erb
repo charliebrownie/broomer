@@ -3,8 +3,13 @@
   <% @tweets.each do |tweet| %>
     <span class="name"><%= tweet.user.nickname %></span>
     <span class="text"><%= tweet.text %></span>
-    <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
-    <img class="image2" src="<%= tweet.image2 %>" width="400" height="400">
+    <div>
+      <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
+      <img class="image2" src="<%= tweet.image2 %>" width="400" height="400">
+        <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+        <% end %>
+    </div>
   <% end %>
   <%= paginate(@tweets) %>
 </div>

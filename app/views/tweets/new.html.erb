@@ -1,9 +1,11 @@
-<%= form_for @tweet, url: tweets_path do |f| %>
-  <h2>投稿する</h2>
-    <%= f.text_field :text, placeholder: "一言", class: "forms_text" %>
-    <h5>Beforeの写真</h5>
-    <%= f.file_field :image1 %>
-    <h5>Afterの写真</h5>
-    <%= f.file_field :image2 %>
-    <%= f.submit "共有", class: "send_button", method: :post %>
-<% end %>
+<div class="container">
+  <%= form_for @tweet, url: tweets_path do |f| %>
+    <h2>投稿する</h2>
+      <%= f.text_field :text, placeholder: "一言", class: "forms_text" %>
+      <h5>Beforeの写真</h5>
+      <%= f.file_field :image1 %>
+      <h5>Afterの写真</h5>
+      <%= f.file_field :image2 %>
+      <%= f.submit "共有", class: "send_button", method: :post %>
+  <% end %>
+</div>

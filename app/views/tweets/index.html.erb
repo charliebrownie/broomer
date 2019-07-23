@@ -33,9 +33,16 @@
 
 <div class="content" style="padding: 100px;">
   <% @tweets.each do |tweet| %> 
-    <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
-    <img class="image2" src="<%= tweet.image2 %>" width="400" height="400"> 
-    <div class="name"><%= tweet.name %></div>
+    <div>
+      <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
+      <img class="image2" src="<%= tweet.image2 %>" width="400" height="400"> 
+        <%= link_to '詳細', tweet_path(tweet.id), method: :get %>
+        <% if user_signed_in? && current_user.id == tweet.user_id %>
+          <%= link_to '編集', edit_tweet_path(tweet.id), method: :get %>
+          <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
+        <% end %>
+    </div>
+    <div class="name"><%= tweet.user.nickname %></div>
     <div class="text"><%= tweet.text %></div>
   <% end %>
 </div>

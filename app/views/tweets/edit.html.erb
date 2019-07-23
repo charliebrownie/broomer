@@ -1,0 +1,9 @@
+<%= form_for @tweet, url: tweet_path(@tweet.id), method: :patch do |f| %>
+  <h2>編集する</h2>
+    <%= f.text_field :text, placeholder: "一言", class: "forms_text" %>
+    <h5>Beforeの写真</h5>
+    <%= f.file_field :image1 %>
+    <h5>Afterの写真</h5>
+    <%= f.file_field :image2 %>
+    <%= f.submit "編集", class: "send_button" %>
+<% end %>
