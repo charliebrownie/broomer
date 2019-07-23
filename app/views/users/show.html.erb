@@ -1,0 +1,10 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>
+    <span class="name"><%= tweet.user.nickname %></span>
+    <span class="text"><%= tweet.text %></span>
+    <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
+    <img class="image2" src="<%= tweet.image2 %>" width="400" height="400">
+  <% end %>
+  <%= paginate(@tweets) %>
+</div>

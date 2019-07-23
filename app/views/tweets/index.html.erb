@@ -1,0 +1,48 @@
+<div class = "top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">BROOMER</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "My Page", "/users/#{current_user.id}", method: 'get', class: "nav-link"%>
+        </li>
+        <li>
+          <%= link_to "投稿", new_tweet_path, method: 'get', class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: "delete", class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, method: 'get', class: "nav-link" %>
+        </li>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path, method: 'get', class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="content" style="padding: 100px;">
+  <% @tweets.each do |tweet| %> 
+    <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
+    <img class="image2" src="<%= tweet.image2 %>" width="400" height="400"> 
+    <div class="name"><%= tweet.name %></div>
+    <div class="text"><%= tweet.text %></div>
+  <% end %>
+</div>
+
+
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+<%= paginate(@tweets) %>
