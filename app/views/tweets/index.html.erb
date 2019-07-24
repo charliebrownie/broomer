@@ -36,6 +36,9 @@
     <div>
       <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
       <img class="image2" src="<%= tweet.image2 %>" width="400" height="400"> 
+        <span class="timestamp">
+        </span>
+        <%= render "likes/like", tweet: tweet %>
         <%= link_to '詳細', tweet_path(tweet.id), method: :get %>
         <% if user_signed_in? && current_user.id == tweet.user_id %>
           <%= link_to '編集', edit_tweet_path(tweet.id), method: :get %>
