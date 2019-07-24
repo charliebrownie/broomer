@@ -1,0 +1,1 @@
+$("#tweet-<%= @tweet.id %>").html("<%= escape_javascript(render "likes/like", tweet: @tweet) %>")
