@@ -1,0 +1,15 @@
+
+
+<h1> ランキング </h1>
+  <% n=1 %>
+  <% while n<=3 do %>
+    <% @all_ranks.each do |tweet|%>
+      <%= n %> 
+        <img src = "<%= tweet.image1 %>" width="300" height="300" >
+        <img src = "<%= tweet.image2 %>" width="300" height="300" >
+        <p><%= tweet.text %></p>
+        <p>いいね数：<%= tweet.likes_count %></p>
+        <p><%= tweet.user.nickname %></p>
+      <% n+= 1 %>
+    <% end %>
+  <% end %>

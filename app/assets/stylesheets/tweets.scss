@@ -1,20 +1,23 @@
-
-
-.images{
-  height: 100%;
-  width: 100%;
-  display: flex;
+// .images{
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
 
   
-  .image1{
-    margin-right: 10px;
-    box-sizing: border-box;
-  }
-  
-  .image2{
-    margin-left: 10px;
-    box-sizing: border-box;
-    
-  }
+.image1{
+  margin-right: 10px;
+  box-sizing: border-box;
+  border-radius: 10%;
 }
+
+.image2{
+  margin-left: 10px;
+  box-sizing: border-box;
+  border-radius: 10%;
+  
+}
+
+
+// }
+
 
