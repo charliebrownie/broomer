@@ -4,6 +4,7 @@
       <%= form_for(tweet.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
           <%= content_tag :span, "いいね #{tweet.likes_count}", class: "glyphicon glyphicon-heart" %>
+            <%= fa_icon 'thumbs-up 1.5x', class:"iine1", style: "color: red;" %>
         <% end %>
       <% end %>
     <% else %>
@@ -11,6 +12,7 @@
         <div><%= hidden_field_tag :tweet_id, tweet.id %></div>
         <%= button_tag(class: "btn btn-default btn-xs") do %>
           <%= content_tag :span, "いいね #{tweet.likes_count}", class: "glyphicon glyphicon-heart-empty" %>
+            <%= fa_icon 'thumbs-up 1.5x', class: "iine2", style: "color: pink;" %>
         <% end %>
       <% end %>
     <% end %>
