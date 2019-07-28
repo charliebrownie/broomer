@@ -1,0 +1,19 @@
+<div class="card" style="max-width: 900px; margin: 0 auto 30px;">
+  <div class="card-header" style="display:flex;">
+    <img src="<%= tweet.image1 %>" class="card-img" alt="<%= tweet.image1 %>" style="width:50%;margin-right:4px;box-sizing: border-box;">
+    <img src="<%= tweet.image2 %>" class="card-img" alt="<%= tweet.image2 %>" style="width:50%;margin-left:4px;box-sizing: border-box;">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= tweet.user.nickname %></h5>
+    <p class="card-text"><%= tweet.text %></p>
+    <%= render "likes/like", tweet: tweet %>
+    <%= link_to 'コメント', tweet_path(tweet.id), method: :get, class: "btn btn-primary" %>
+    <% if user_signed_in? && current_user.id == tweet.user_id %>
+      <%= link_to '編集', edit_tweet_path(tweet.id), method: :get, class: "btn btn-primary"%>
+      <%= link_to '削除', tweet_path(tweet.id), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-primary" %>
+    <% end %>
+    
+    <%= link_to "# #{tweet.tags&.first&.name}", tweet_path(tweet.id), method: :get %>
+
+  </div>
+</div>

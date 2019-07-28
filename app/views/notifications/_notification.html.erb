@@ -1,0 +1,10 @@
+<% visiter=notification.visiter %>
+<% post=notification.tweet %>
+
+<div class="user-view clearfix ">
+  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+  <br>
+  <% if !@comment.nil? %>
+    <p class="moderate-font"><%= @comment %></p>
+  <% end %>
+</div>

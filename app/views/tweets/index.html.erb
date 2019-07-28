@@ -1,20 +1,26 @@
-<div class = wf-nicomoji>
+<!-- <div class = wf-nicomoji>
   <div class = "top">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <%= link_to "BROOMER", "/tweets", method: 'get', class: "navbar-brand" %>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #000000;">
+      <%= link_to "BROOMER", "/tweets", method: 'get', class: "navbar-brand mx-auto" %>
       <%# <a class="navbar-brand" href="/tweets">BROOMER</a> %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-auto">
           <li>
             <%= link_to "ランキング", ranking_index_path, method: 'get', class: "nav-link" %>
           </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "My Page", "/users/#{current_user.id}", method: 'get', class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "通知", notifications_path, method: 'get', class: "nav-link"%>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle notification-circle"></i>
+            <% end %>
           </li>
           <li>
             <%= link_to "投稿", new_tweet_path, method: 'get', class: "nav-link" %>
@@ -31,51 +37,17 @@
           </li>
         <% end %>
       </ul>
+      <%# <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form> %>
       </div>
     </nav>
   </div>
+  -->
 
-  <div class="content" style="padding: 100px;">
-    <% @tweets.each do |tweet| %> 
-      <div>
-
-        <div class="card" style = "width: 900px; margin: 0 auto;">
-          <div class="card-header" style="display:flex;">
-            <img src="<%= tweet.image1 %>" class="card-img" alt="..." width="400" height="400" style="width:50%;">
-            <img src="<%= tweet.image2 %>" class="card-img" alt="..." width="400" height="400" style="width:50%;">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><%= tweet.user.nickname %></h5>
-            <p class="card-text"><%= tweet.text %></p>
-            <%= render "likes/like", tweet: tweet %>
-            <%= link_to '詳細', tweet_path(tweet.id), method: :get, class: "btn btn-primary" %>
-            <% if user_signed_in? && current_user.id == tweet.user_id %>
-              <%= link_to '編集', edit_tweet_path(tweet.id), method: :get, class: "btn btn-primary"%>
-              <%= link_to '削除', tweet_path(tweet.id), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-primary" %>
-            <% end %>
-            <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-          </div>
-        </div>
-
-      <br>
-
-      <!--  <img class="image1" src="<%= tweet.image1 %>" width="400" height="400">
-        <img class="image2" src="<%= tweet.image2 %>" width="400" height="400"> 
-          <span class="timestamp">
-          </span>
-          <%= render "likes/like", tweet: tweet %>
-          <br>
-          <%= link_to '詳細', tweet_path(tweet.id), method: :get %>
-          <% if user_signed_in? && current_user.id == tweet.user_id %>
-            <%= link_to '編集', edit_tweet_path(tweet.id), method: :get %>
-            <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
-          <% end %>
-          <br>
-      </div>
-      <div class="name"><%= tweet.user.nickname %></div>
-      <div class="text"><%= tweet.text %></div>
-      -->
-    <% end %>
+  <div class="content">
+    <%= render @tweets %>
   </div>
 
   </main>

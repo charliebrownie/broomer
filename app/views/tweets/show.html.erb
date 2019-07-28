@@ -1,36 +1,19 @@
 <div class="contents row">
-  <img class="image1" src="<%= @tweet.image1 %>" width="500" height="500">
-  <img class="image2" src="<%= @tweet.image2 %>" width="500" height="500"> 
-    <% if user_signed_in? && current_user.id == @tweet.user_id %>
-      <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
-      <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
-    <% end %>
-    <%= simple_format(@tweet.text) %>
-    <span class="name">
-      <a href="/users/<%= @tweet.user.nickname %> ">
-      <span>投稿者</span><%= @tweet.user.nickname %>
-      </a>
-    </span>
-    <div class="container">
-      <% if current_user %>    
-        <%= form_for @comment, url: tweet_comments_path(@tweet.id), method: :post do |f| %>
-          <%= f.text_area :text, placeholder: "コメントする", class: "forms_textarea" %>
-          <%= f.submit "コメントする", class: "send_button" %>
-        <% end %>
+<%= render partial: "tweets/tweet", locals: {tweet: @tweet} %>
+
+  <div class="container">
+    <% if current_user %>    
+      <%= form_for @comment, url: tweet_comments_path(@tweet.id), method: :post, remote: true do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", class: "forms_textarea" %>
+        <%= f.submit "コメントする", class: "send_button" %>
       <% end %>
+    <% end %>
 
 
-      <div class="comments">
-        <h4>＜コメント一覧＞</h4>
-        <% if @comments %>
-          <% @comments.each do |comment| %>
-            <p>
-              <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
-              <%= comment.text %>
-            </p>
-          <% end %>
-        <% end %>
-      </div>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <%= render partial: "comments/comment", collection: @comments %>
     </div>
-        
+  </div>
+      
 </div>

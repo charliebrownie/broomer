@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     unless @tweet.iine?(current_user)
       @tweet.iine(current_user)
+      @tweet.create_notification_by(current_user)
       @tweet.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
