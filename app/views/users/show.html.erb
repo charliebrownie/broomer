@@ -1,5 +1,10 @@
-<div class="contents row" style="width: 900px; margin: 0 auto 30px;">
-  <p><%= @nickname %>さんの投稿一覧</p><br>
+
+<h1 class="title"><%= @nickname %>さんの投稿一覧</h1>
   <%= render @tweets %>
+<div>
   <%= paginate(@tweets) %>
 </div>
+
+
+
+

@@ -1,3 +1,31 @@
+@media screen and (max-width: 1125px) { 
+  .card-header {
+    display: inline;
+  }
+  .card-img {
+  }
+  .fa-circle {
+    position: absolute;
+    top: 5px;
+    left: 35px;
+  }
+}
+@media screen and (min-width:1126px) {
+  .card-header {
+    display: flex;
+  }
+  .card-img {
+    width: 50%;
+    margin-left: 4px;
+    box-sizing: border-box;
+  }
+  .fa-circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
 // .images{
 //   height: 100%;
 //   width: 100%;
@@ -17,6 +45,65 @@
   
 }
 
+.pagination{
+  margin-left: 47%;
+}
+
+.small{
+  font-size: 0.6em;
+  color: red;
+}
+
+.send_button{
+  margin-bottom: 30px;
+
+}
+
+.container{
+
+}
+
+.submit_text{
+  font-size: 30px;
+}
+
+
+
+.forms_text{
+  border: 2px solid #307DF6;  /* 枠線 */
+  border-radius: 0.67em;   /* 角丸 */
+  padding: 0.5em;          /* 内側の余白量 */
+  background-color: snow;  /* 背景色 */
+  width: 20em;             /* 横幅 */
+  height: 60px;           /* 高さ */
+  font-size: 1em;          /* 文字サイズ */
+  line-height: 1.2;        /* 行の高さ */
+}
+
+.form-control{
+  width: 50%;
+}
+
+
+
+// .send_button{
+//   position: relative;
+//   display: inline-block;
+//   font-weight: bold;
+//   padding: 7px 10px 10px 10px;
+//   text-decoration: none;
+//   color: #FFF;
+//   background: #a180dc;
+//   transition: .4s;
+// }
+
+// .send_button{
+//   border-bottom: solid 2px #FFF;
+// }
+
+// .send_button:hover{
+//   background: #91b5fb;
+// }
 
 // }
 

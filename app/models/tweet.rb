@@ -5,9 +5,8 @@ class Tweet < ApplicationRecord
   has_many :comments
   has_many :likes, dependent: :destroy
   has_many :iine_users, through: :likes, source: :user
-  has_many :tweets, dependent: :destroy
   has_many :tweet_tags
-  has_many :tags, through: :tweet_tags
+  has_many :tags, through: :tweet_tags, dependent: :destroy
 
   def iine(user)
     likes.create(user_id: user.id)

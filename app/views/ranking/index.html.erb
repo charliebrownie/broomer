@@ -1,7 +1,5 @@
-
-
-<h1> ランキング </h1>
+<h1 class = "rank"> ランキング </h1>
 <% @all_ranks.each_with_index do |tweet, n|%>
-  <p><%= n+1 %></p>
+  <p class = "list"><%= n+1 %>位</p>
   <%= render partial: "tweets/tweet", locals: {tweet: tweet} %>
 <% end %>

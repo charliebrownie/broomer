@@ -2,6 +2,6 @@
   <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
   <%= comment.text %>
   <% if user_signed_in? && current_user.id == comment.user_id %>
-    <%= link_to '削除', tweet_comment_path(comment.tweet.id, comment.id), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-primary", remote: true %>
+    <%= link_to '削除', tweet_comment_path(comment.tweet.id, comment.id), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-outline-primary", style: "margin-left: 50px;", remote: true %>
   <% end %>
 </p>

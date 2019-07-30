@@ -5,8 +5,21 @@
 @import "./ranking";
 @import "./comments";
 @import "./users";
+@import "./reset";
 
 
 .wf-mplus1p {
   font-family: "M PLUS 1p"; 
+}
+
+
+.notification{
+  // display: inline;
+  // float: left;
+  // display: inline-block;
+}
+
+.explanation{
+  text-align: center;
+  font-size: 50px;
 }
