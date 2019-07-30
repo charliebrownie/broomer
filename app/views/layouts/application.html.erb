@@ -12,6 +12,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
     
+    
   </head>
 
   <body>
@@ -34,10 +35,12 @@
                 <%= link_to "My Page", "/users/#{current_user.id}", method: 'get', class: "nav-link"%>
               </li>
               <li class="nav-item">
-                <%= link_to "通知", notifications_path, method: 'get', class: "nav-link"%>
-                <% if unchecked_notifications.any? %>
-                  <i class="fa fa-circle notification-circle"></i>
-                <% end %>
+                <div class="notification" style="position: relative;">
+                  <%= link_to "通知", notifications_path, method: 'get', class: "nav-link" %>
+                  <% if unchecked_notifications.any? %>
+                    <i class="fa fa-circle small" style="position: absolute; top: 0; right: 0;"></i>
+                  <% end %>
+                </div>
               </li>
               <li>
                 <%= link_to "投稿", new_tweet_path, method: 'get', class: "nav-link" %>
@@ -62,7 +65,9 @@
       </nav>
     </div>
     <div class="wrapper" style="margin-top: 56px;padding: 40px 60px;">
+      
       <%= yield %>
     </div>
-  </body>
+
+   </body>
 </html>
