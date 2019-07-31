@@ -13,7 +13,7 @@
         <%= link_to '削除', tweet_path(tweet.id), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-primary" %>
       <% end %>
       
-      <%= link_to "# #{tweet.tags&.first&.name}", tweet_path(tweet.id), method: :get %>
+      <%= link_to "# #{tweet.tags&.first&.name}", tag_path(tweet.tags&.first&.id), method: :get %>
 
     </div>
   </div>
