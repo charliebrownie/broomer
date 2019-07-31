@@ -42,10 +42,6 @@ class TweetsController < ApplicationController
     @comment = Comment.new
   end
 
-  def search
-    @tweets = []
-  end
-
   private
   def create_params
     params.require(:tweet).permit(:text, :image1, :image2, :tag_ids).merge(user_id: current_user.id)

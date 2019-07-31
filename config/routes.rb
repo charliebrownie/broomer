@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :ranking, only: :index
   resources :notifications, only: :index
+  resources :tags, only: :show
+
 end
