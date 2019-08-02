@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(5)
-    @all_ranks = Tweet.order("likes_count DESC").limit(3)
+    # @all_ranks = Tweet.order("likes_count DESC").limit(6)
     # @all_ranks = Tweet.find(Tweet.group(:id).order('count(likes_count) desc').limit(3).pluck(:id))
     # all_ranks = Tweet.group(:id).order('count_likes_count desc').limit(3).count(:likes_count).keys
     # @all_ranks = all_ranks.map{|id| Tweet.find(id)}
@@ -44,7 +44,7 @@ class TweetsController < ApplicationController
 
   private
   def create_params
-    params.require(:tweet).permit(:text, :image1, :image2, :tag_ids).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:text, :image1, :image2, :tag_ids, :likes_count).merge(user_id: current_user.id)
   end
 
   def move_to_index
