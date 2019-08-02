@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     
     
   </head>
@@ -30,6 +30,7 @@
               <li>
                 <%= link_to "ランキング", ranking_index_path, method: 'get', class: "nav-link" %>
               </li>
+
             <% if user_signed_in? %>
               <li class="nav-item">
                 <%= link_to "My Page", "/users/#{current_user.id}", method: 'get', class: "nav-link"%>
@@ -57,12 +58,9 @@
               </li>
             <% end %>
           </ul>
-        <%# <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form> %>
         </div>
       </nav>
+      
     </div>
     <div class="wrapper" style="margin-top: 56px;padding: 40px 60px;">
       
