@@ -1,7 +1,10 @@
-  <div class="card" style="max-width: 900px; margin: 0 auto 30px;">
+  <div class="card">
     <div class="card-header">
-      <img src="<%= tweet.image1 %>" class="card-img" alt="<%= tweet.image1 %>">
-      <img src="<%= tweet.image2 %>" class="card-img" alt="<%= tweet.image2 %>">
+      <div class="card-imgs">
+        <%= image_tag("#{tweet.image1}", id: "image1", class: "card-img", alt: "#{tweet.image1}") %>
+        <hr id="horizon">
+        <%= image_tag("#{tweet.image2}", id: "image2", class: "card-img", alt: "#{tweet.image2}") %>
+      </div>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= tweet.user.nickname %></h5>
