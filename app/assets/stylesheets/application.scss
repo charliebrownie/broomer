@@ -8,6 +8,19 @@
 @import "./reset";
 
 
+@media screen and (max-width: 1125px) {
+  .wrapper {
+    margin-top: 56px;
+    padding: 0 5px;
+  }
+}
+@media screen and (min-width:1126px) {
+  .wrapper {
+    margin-top: 56px;
+    padding: 40px 60px;
+  }
+}
+
 title.title {
   font-family: 'Fredericka the Great', cursive;
 }
