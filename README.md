@@ -25,8 +25,7 @@
 # 工夫したところ
   1. **モバイル対応**  
   PCサイズでは画像が横並びに、携帯サイズでは縦並びになる様にし、
-  小さい画面でも見やすくなるようにしました。
-  <img src="https://i.gyazo.com/9db4bce63aacc3b45b4ac7689b403409.jpg" width="300px" height="300px">
+  小さい画面でも見やすくなるようにしました。  <img src="https://i.gyazo.com/9db4bce63aacc3b45b4ac7689b403409.jpg" width="300px" height="300px">
   
   2. **いいねの順に並ぶランキング**  
   6位まで表示し、いいね数がnullのものは排除しました。
