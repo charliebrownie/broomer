@@ -9,10 +9,10 @@ CarrierWave.configure do |config|
     provider: 'AWS',
     # aws_secret_key_id: ENV['AWS_ACCESS_KEY_ID'],
     # aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-    # access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
-    # secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
+    access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
+    secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
     
-    # region: 'ap-northeast-1'
+    region: 'ap-northeast-1'
   }
 
   config.fog_directory  = 'broomer'
